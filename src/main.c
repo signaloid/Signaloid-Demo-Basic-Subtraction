@@ -35,7 +35,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <uncertain.h>
+#include <uxhw.h>
 #include <unistd.h>
 
 typedef enum {
@@ -181,8 +181,8 @@ main(int argc, char *  argv[])
 		/*
 		 *	Load samples into distributional double variables.
 		 */
-		A = libUncertainDoubleDistFromSamples(samplesA, numberOfSamplesA);
-		B = libUncertainDoubleDistFromSamples(samplesB, numberOfSamplesB);
+		A = UxHwDoubleDistFromSamples(samplesA, numberOfSamplesA);
+		B = UxHwDoubleDistFromSamples(samplesB, numberOfSamplesB);
 
 		printf("A = %lf\n", A);
 
@@ -218,7 +218,7 @@ main(int argc, char *  argv[])
 		convolutionMethodMean = convolutionMethodTotal / (numberOfSamplesA*numberOfSamplesB);
 		printf("C (explicitly-calculated convolution mean) = %lf\n", convolutionMethodMean);
 
-		C = libUncertainDoubleDistFromSamples(&convolutionMethodResults[0][0], numberOfSamplesA*numberOfSamplesB);
+		C = UxHwDoubleDistFromSamples(&convolutionMethodResults[0][0], numberOfSamplesA*numberOfSamplesB);
 		printf("C = %lf\n", C);
 	}
 
